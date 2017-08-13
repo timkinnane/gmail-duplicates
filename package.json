@@ -1,0 +1,9 @@
+{
+  "name": "gmail-duplicates",
+  "version": "0.0.1",
+  "description": "Find and remove duplicate emails from a Gmail account.",
+  "main": "index.js",
+  "repository": "https://github.com/timkinnane/gmail-duplicates",
+  "author": "Tim Kinnane",
+  "license": "MIT"
+}
