@@ -2,8 +2,32 @@
   "name": "gmail-duplicates",
   "version": "0.0.1",
   "description": "Find and remove duplicate emails from a Gmail account.",
-  "main": "index.js",
+  "main": "server.js",
+  "scripts": {
+    "local": "node -r babel-register server.js"
+  },
   "repository": "https://github.com/timkinnane/gmail-duplicates",
   "author": "Tim Kinnane",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt-nodejs": "^0.0.3",
+    "body-parser": "^1.17.2",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "dotenv": "^4.0.0",
+    "ejs": "^2.5.7",
+    "express": "^4.15.4",
+    "express-session": "^1.15.5",
+    "method-override": "^2.3.9",
+    "mongoose": "^4.11.6",
+    "morgan": "^1.8.2",
+    "node-gmail-api": "^0.6.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-core": "^6.25.0",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-es2015-node": "^6.1.1",
+    "standard": "^10.0.3"
+  }
 }
