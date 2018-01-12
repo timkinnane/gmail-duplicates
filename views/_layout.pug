@@ -1,0 +1,25 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="utf-8")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(name="description" content="Find and remove duplicate emails from a Gmail account.")
+    title Gmail Duplicates (delete them!)
+    link(rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous")
+    link(rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous")
+    <!--[if lte IE 8]>
+      link(rel="stylesheet" href="css/layouts/email-old-ie.css")
+    <![endif]-->
+    <!--[if gt IE 8]><!-->
+      link(rel="stylesheet" href="css/layouts/email.css")
+    <!--<![endif]-->
+    block scripts
+  body
+    #layout.content.pure-g
+      #nav.pure-u
+        a.nav-menu-button(href="#") Menu
+        .nav-inner
+          include includes/signin
+          include includes/menu
+    block header
+    block content

@@ -1,0 +1,32 @@
+body {
+  padding-top:80px;
+  font-family: 'Roboto', sans-serif;
+}
+a.google {
+  text-indent: -999px;
+  overflow: hidden;
+  width: 191px;
+  height: 46px;
+  background-repeat: no-repeat;
+  background-position: top left;
+  background-size: 191px 46px;
+  background-image: url('assets/btn_google_signin_dark_normal_web.png');
+}
+a.google:focus {
+  background-image: url('assets/btn_google_signin_dark_focus_web.png');
+}
+a.google:active {
+  background-image: url("assets/btn_google_signin_dark_pressed_web.png");
+}
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  a.google {
+    background-size: 382px 92px;
+    background-image: url('assets/btn_google_signin_dark_normal_web2x.png');
+  }
+  a.google:focus {
+    background-image: url('assets/btn_google_signin_dark_focus_web2x.png');
+  }
+  a.google:active {
+    background-image: url("assets/btn_google_signin_dark_pressed_web2x.png");
+  }
+}

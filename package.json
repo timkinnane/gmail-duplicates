@@ -2,32 +2,84 @@
   "name": "gmail-duplicates",
   "version": "0.0.1",
   "description": "Find and remove duplicate emails from a Gmail account.",
-  "main": "server.js",
-  "scripts": {
-    "local": "node -r babel-register server.js"
-  },
-  "repository": "https://github.com/timkinnane/gmail-duplicates",
   "author": "Tim Kinnane",
   "license": "MIT",
+  "main": "lib/server.js",
+  "files": [
+    "lib/",
+    "public/",
+    "views/"
+  ],
+  "repository": "https://github.com/timkinnane/gmail-duplicates",
+  "standard": {
+    "env": [
+      "mocha"
+    ]
+  },
+  "nyc": {
+    "reporter": [
+      "lcovonly",
+      "text"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-conventional-changelog"
+    }
+  },
+  "scripts": {
+    "serve": "node -r dotenv/config -r babel-register src/server.js",
+    "start": "node lib/server.js",
+    "dev": "run-s compile test",
+    "dev:watch": "run-p compile:watch test:watch",
+    "build": "run-s compile test:coverage",
+    "precompile": "npm run compile:lint && rimraf lib",
+    "compile:lint": "standard 'src/**/*.js' | snazzy",
+    "compile": "babel src --source-maps --out-dir lib",
+    "compile:watch": "onchange 'src/**/*.js' -- npm run compile",
+    "pretest": "npm run test:lint",
+    "test:lint": "standard 'src/**/*.js' | snazzy",
+    "test": "mocha test --bail",
+    "test:watch": "onchange 'lib/**/*.js' 'test/**/*.js' -d  200 -- npm run test",
+    "test:coverage": "nyc mocha test",
+    "commit": "git add -A && status -s && git-cz -a"
+  },
   "dependencies": {
     "bcrypt-nodejs": "^0.0.3",
     "body-parser": "^1.17.2",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.3",
     "dotenv": "^4.0.0",
-    "ejs": "^2.5.7",
     "express": "^4.15.4",
     "express-session": "^1.15.5",
     "method-override": "^2.3.9",
     "mongoose": "^4.11.6",
     "morgan": "^1.8.2",
-    "node-gmail-api": "^0.6.0"
+    "node-gmail-api": "^0.6.0",
+    "passport": "^0.4.0",
+    "passport-google-oauth": "^1.0.0",
+    "pug": "^2.0.0-rc.3",
+    "winston": "^2.3.1"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",
     "babel-core": "^6.25.0",
-    "babel-plugin-add-module-exports": "^0.2.1",
     "babel-preset-es2015-node": "^6.1.1",
+    "chai": "^4.1.1",
+    "chai-as-promised": "^7.1.1",
+    "chai-http": "^3.0.0",
+    "chai-subset": "^1.5.0",
+    "commitizen": "^2.9.6",
+    "cz-conventional-changelog": "^2.0.0",
+    "mocha": "^3.5.0",
+    "mocha-clean": "^1.0.0",
+    "mocha-mongoose": "^1.2.0",
+    "npm-run-all": "^4.1.1",
+    "nyc": "^11.1.0",
+    "onchange": "^3.2.1",
+    "rimraf": "^2.6.1",
+    "snazzy": "^7.0.0",
+    "source-map-support": "^0.4.16",
     "standard": "^10.0.3"
   }
 }
